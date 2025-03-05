@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <link rel="stylesheet" href="{% static 'css/accueil/side_video.css' %}">
+
+</head>
+<body>
+
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <div class="sidebar" id="sidebar">
+    <a href="">Accueil</a>
+    <a href="{% url 'accueil' %}">Accueil</a>
+    <a href="{% url 'listeproduits' %}">Produits</a>
+    <a href="{% url 'liste_categories' %}">Catégorie</a>
+    <a href="#">Commande</a>
+    <a href="{% url 'apropos' %}">À propos</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </div>
+
+  <!-- Conteneur vidéo avec plusieurs vidéos -->
+<!-- Conteneur vidéo avec plusieurs vidéos -->
+<div class="video-container">
+  <video class="active" autoplay muted loop>
+    <source src="{% static 'videos/video1.mp4' %}" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+  <video autoplay muted loop>
+    <source src="{% static 'videos/video2.mp4' %}" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+  <video autoplay muted loop>
+    <source src="{% static 'videos/video3.mp4' %}" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+</div>
+<div class="content" id="content">
+  <h1>Bienvenue chez Bootika</h1>
+  <p>Découvrez le luxe et l'innovation technologique à portée de main.</p>
+</div>
+<script src="{% static 'js/sidebar.js' %}"></script>
+<script src="{% static 'js/video.js' %}"></script>
+</body>
+</html>

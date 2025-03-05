@@ -1,0 +1,7 @@
+touch .gitignore
+echo "env/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.sqlite3" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo ".vscode/" >> .gitignore
+echo ".env" >> .gitignore

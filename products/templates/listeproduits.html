@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des Produits</title>
+  <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+  <style>
+
+    /* Style pour la liste des produits */
+    .produit-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .produit {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .produit img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .produit h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .produit p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .statut {
+      font-weight: bold;
+    }
+
+    .disponible {
+      color: green;
+    }
+
+    .indisponible {
+      color: red;
+    }
+    body {
+            background : radial-gradient(circle,#4c0d0dc4,#000000 );
+        }
+    .un{
+      text-align: center;
+      color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bouton pour ouvrir la sidebar -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <!-- Overlay sombre -->
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="">Accueil</a>
+    <a href="{% url 'accueil' %}">Accueil</a>
+    <a href="{% url 'listeproduits' %}">Produits</a>
+    <a href="{% url 'liste_categories' %}">Catégorie</a>
+    <a href="#">Commande</a>
+    <a href="{% url 'apropos' %}">À propos</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </div>
+  <!-- Contenu principal -->
+  <div class="content" id="content">
+    <h1 class="un">Liste des Produits</h1>
+    <a href="{% url 'ajouter_produit' %}" type="button" style="background-color: #940909; font-family: 'Times New Roman', Times, serif; 
+    color: aliceblue;" ><strong>Ajouter produit</strong></a>
+    <div class="produit-container">
+      {% for produit in listes %}
+      <div class="produit">
+        {% if produit.image %}
+          <img src="{{ produit.image.url }}" alt="{{ produit.nom_prod }}">
+        {% else %}
+          <p>Pas d'image disponible</p>
+        {% endif %}
+        <h3>{{ produit.nom_prod }}</h3>
+        <p><strong>Prix :</strong> {{ produit.prix }} FCFA</p>
+        <p><strong>Statut :</strong> 
+          <span class="statut {% if produit.statut == 'disponible' %}disponible{% else %}indisponible{% endif %}">
+            {{ produit.statut }}
+          </span>
+        </p>
+        <p><strong>Quantité en stock :</strong> {{ produit.quantite_en_stock }}</p>
+        <p><strong>Catégorie :</strong> {{ produit.categorie.nom_categorie }}</p>
+        <p><strong>Boutiquier :</strong> {{ produit.boutiquier.nom }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <script src="{% static 'js/sidebar.js' %}"></script>
+</body>
+</html>

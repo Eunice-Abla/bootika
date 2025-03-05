@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des catégories</title>
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fond clair pour contraster avec les couleurs sombres */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4c0d0dc4; /* Couleur principale de Bootika */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .table thead {
+            background-color: #4c0d0dc4; /* Couleur principale pour l'en-tête du tableau */
+            color: white;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .btn-primary {
+            background-color: #4c0d0dc4; /* Bouton avec la couleur principale */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btn-primary:hover {
+            background-color: #940909; /* Couleur au survol */
+        }
+        .btn-secondary {
+            background-color: #940909; /* Couleur secondaire pour le bouton de retour */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-secondary:hover {
+            background-color: #4c0d0dc4; /* Couleur au survol */
+        }
+    </style>
+</head>
+<body>
+<!-- Bouton pour ouvrir la sidebar -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <!-- Overlay sombre -->
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="">Accueil</a>
+    <a href="{% url 'accueil' %}">Accueil</a>
+    <a href="{% url 'listeproduits' %}">Produits</a>
+    <a href="{% url 'liste_categories' %}">Catégorie</a>
+    <a href="#">Commande</a>
+    <a href="{% url 'apropos' %}">À propos</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </div>
+    <div class="container">
+        <h1>Liste des catégories</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom de la catégorie</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ categorie.nom_categorie }}</td>
+                    <td>{{ categorie.description }}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'ajouter_categorie' %}" class="btn btn-secondary">Ajouter une catégorie</a>
+    </div>
+    
+    <script src="{% static 'js/sidebar.js' %}"></script>
+    <!-- Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

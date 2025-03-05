@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un produit</title>
+    <link rel="stylesheet" href="{% static 'css/formulProd.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fond clair pour contraster avec les couleurs sombres */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4c0d0dc4; /* Couleur principale de Bootika */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group label {
+            color: #000000; /* Texte en noir */
+            font-weight: bold;
+        }
+        .form-control {
+            border: 1px solid #4c0d0dc4; /* Bordure avec la couleur principale */
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #4c0d0dc4; /* Bouton avec la couleur principale */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btn-primary:hover {
+            background-color: #940909; /* Couleur au survol */
+        }
+        .btn-secondary {
+            background-color: #940909; /* Couleur secondaire pour le bouton de retour */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-secondary:hover {
+            background-color: #4c0d0dc4; /* Couleur au survol */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter un produit</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.nom_prod.label_tag }}
+                {{ form.nom_prod }}
+            </div>
+            <div class="form-group">
+                {{ form.prix.label_tag }}
+                {{ form.prix }}
+            </div>
+            <div class="form-group">
+                {{ form.statut.label_tag }}
+                {{ form.statut }}
+            </div>
+            <div class="form-group">
+                {{ form.quantite_en_stock.label_tag }}
+                {{ form.quantite_en_stock }}
+            </div>
+            <div class="form-group">
+                {{ form.categorie.label_tag }}
+                {{ form.categorie }}
+            </div>
+            <div class="form-group">
+                {{ form.boutiquier.label_tag }}
+                {{ form.boutiquier }}
+            </div>
+            <div class="form-group">
+                {{ form.image.label_tag }}
+                {{ form.image }}
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+        <a href="{% url 'listeproduits' %}" class="btn btn-secondary">Liste des produits</a>
+    </div>
+
+    <!-- Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

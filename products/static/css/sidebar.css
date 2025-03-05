@@ -1,0 +1,99 @@
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  overflow-x: hidden;
+}
+
+/* Style de la sidebar */
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  background-color: #340606c4;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: -250px;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Afficher la sidebar lorsqu’elle est active */
+.sidebar.active {
+  left: 0;
+}
+
+/* Style des liens de la sidebar */
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+}
+
+/* Effet hover */
+.sidebar a:hover {
+  background-color: #000000;
+}
+
+/* Bouton pour ouvrir la sidebar */
+.toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Overlay sombre lorsqu’on ouvre la sidebar */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Montrer l’overlay quand la sidebar est active */
+.overlay.active {
+  display: block;
+}
+
+/* Contenu principal */
+.content {
+  padding: 20px;
+  margin-left: 0;
+  margin-top: 50px; /* Ajouter une marge en haut pour éloigner le texte */
+  transition: margin-left 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* Décaler le contenu quand la sidebar est active */
+.content.shifted {
+  margin-left: 250px;
+}
+
+/* Style du texte */
+.content h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.content p {
+  line-height: 1.6;
+  text-align: justify;
+}
+

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Bootika</title>
+  <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+  <style>
+    /* pour l'image */
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      overflow-x: hidden;
+      background-image: url("{% static 'images/pic.jpg' %}"); /*Utilisation correcte de la balise static*/
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Bouton pour ouvrir la sidebar -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <!-- Overlay sombre -->
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="">Accueil</a>
+    <a href="{% url 'accueil' %}">Accueil</a>
+    <a href="{% url 'listeproduits' %}">Produits</a>
+    <a href="{% url 'liste_categories' %}">Catégorie</a>
+    <a href="#">Commande</a>
+    <a href="{% url 'apropos' %}">À propos</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </div>
+
+  <!-- Contenu principal -->
+
+  <div class="content" id="content"  style="color: antiquewhite;">
+    <h1>À propos de Bootika</h1>
+    <p>
+      <strong>L'Excellence Technologique à Portée de Main</strong><br><br>
+      Bootika n’est pas simplement une boutique en ligne — c’est un univers où l'innovation rencontre le raffinement. 
+      Spécialisée dans la vente d'articles technologiques haut de gamme, Bootika propose une sélection soigneusement 
+      choisie de produits qui allient performance, design et élégance.
+    </p>
+    <p>
+      Des smartphones dernière génération aux tablettes sophistiquées, en passant par des casques de réalité virtuelle 
+      immersifs et des enseignes intelligentes avant-gardistes, chaque produit que nous offrons est synonyme de qualité et d'exception. 
+      Nous croyons que la technologie, au-delà de sa fonctionnalité, doit être une expérience. C’est pourquoi Bootika 
+      s’engage à fournir des équipements à la pointe, adaptés aux standards les plus élevés.
+    </p>
+    <p>
+      Notre vision est simple : rendre le luxe technologique accessible, tout en garantissant un service irréprochable. 
+      Avec Bootika, chaque achat est une invitation à découvrir le futur, avec style et confort. Profitez d’une expérience 
+      d’achat en ligne fluide, d’une livraison rapide et d’un accompagnement personnalisé.
+    </p>
+    <p>
+      Bienvenue dans un monde où l'innovation rime avec élégance. Bienvenue chez Bootika.
+    </p>
+  </div>
+
+
+  <script src="{% static 'js/sidebar.js' %}"></script>
+</body>
+</html>
