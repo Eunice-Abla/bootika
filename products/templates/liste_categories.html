@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des catégories</title>
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/footer.css' %}"> -->
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -107,9 +107,7 @@
         </table>
         <a href="{% url 'ajouter_categorie' %}" class="btn btn-secondary">Ajouter une catégorie</a>
     </div>
-    <footer>
-        <p>&copy; 2025 Bootika. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="{% url 'contact' %}">Contact</a></p>
-    </footer>
+
     <script src="{% static 'js/sidebar.js' %}"></script>
     <!-- Bootstrap JS et dépendances -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
