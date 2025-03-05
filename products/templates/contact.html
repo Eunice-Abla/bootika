@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contactez-nous</title>
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
   <link rel="stylesheet" href="{% static 'css/contact.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -60,7 +61,9 @@
       </div>
     </div>
   <!-- </div> -->
-
+  <footer>
+    <p>&copy; 2025 Bootika. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="{% url 'contact' %}">Contact</a></p>
+</footer>
   <script src="{% static 'js/sidebar.js' %}"></script>
 </body>
 </html>

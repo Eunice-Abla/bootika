@@ -1,0 +1,28 @@
+/* Footer */
+footer {
+    position: fixed; /* Fixe le footer en bas de la page */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #4c0d0dc4, #000000); /* Dégradé de couleurs */
+    color: white; /* Texte en blanc */
+    text-align: center;
+    padding: 10px 0; /* Espacement intérieur */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    z-index: 1000; /* Pour s'assurer que le footer est au-dessus des autres éléments */
+}
+
+footer p {
+    margin: 0; /* Supprime la marge par défaut du paragraphe */
+}
+
+footer a {
+    color: white; /* Liens en blanc */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Souligne les liens au survol */
+}

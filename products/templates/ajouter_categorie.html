@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,6 +7,7 @@
     <title>Ajouter une catégorie</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <style>
         body {
             background-color: #f8f9fa; /* Fond clair pour contraster avec les couleurs sombres */
@@ -71,7 +73,9 @@
         </form>
         <a href="{% url 'liste_categories' %}" class="btn btn-secondary">Liste des catégories</a>
     </div>
-
+    <footer>
+        <p>&copy; 2025 Bootika. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="{% url 'contact' %}">Contact</a></p>
+    </footer>
     <!-- Bootstrap JS et dépendances -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
   <link rel="stylesheet" href="{% static 'css/accueil/side_video.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
 </head>
 <body>
@@ -44,6 +45,9 @@
   <h1>Bienvenue chez Bootika</h1>
   <p>Découvrez le luxe et l'innovation technologique à portée de main.</p>
 </div>
+<footer>
+  <p>&copy; 2025 Bootika. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="{% url 'contact' %}">Contact</a></p>
+</footer>
 <script src="{% static 'js/sidebar.js' %}"></script>
 <script src="{% static 'js/video.js' %}"></script>
 </body>

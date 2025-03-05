@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liste des Produits</title>
   <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <style>
 
     /* Style pour la liste des produits */
@@ -109,7 +110,9 @@
     </div>
   </div>
 
-
+  <footer>
+    <p>&copy; 2025 Bootika. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="{% url 'contact' %}">Contact</a></p>
+</footer>
   <script src="{% static 'js/sidebar.js' %}"></script>
 </body>
 </html>
